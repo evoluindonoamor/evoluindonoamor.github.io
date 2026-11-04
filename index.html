@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Evoluindo no Amor — Construa um Relacionamento Maduro, Seguro e Apaixonante</title>
+    <meta name="description" content="Curso completo em vídeo-aulas e material em texto para restaurar a conexão, fortalecer a maturidade emocional e viver um amor recíproco e duradouro.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        wine: { 50: '#fdf4f5', 100: '#fbe8eb', 200: '#f6d5da', 300: '#eeb3bd', 400: '#e28596', 500: '#cf566f', 600: '#b83856', 700: '#9b2946', 800: '#681b30', 900: '#461220', 950: '#24060e' },
+                        champagne: { 50: '#FCF9F5', 100: '#F7F1E8', 200: '#EFE3D2', 300: '#E3CEB3', 400: '#D4B38D', 500: '#C49A6C' },
+                        gold: { 300: '#E6C762', 400: '#D4AF37', 500: '#C59B27', 600: '#AA8215' }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'luxury': '0 20px 50px -12px rgba(70, 18, 32, 0.14)',
+                        'glow': '0 10px 30px -5px rgba(16, 185, 129, 0.45)',
+                    }
+                }
+            }
+        }
+
+        function handleDriveImageError(img, driveId, fallbackUrl) {
+            if (!img.dataset.retried) {
+                img.dataset.retried = 'true';
+                img.src = 'https://drive.google.com/thumbnail?id=' + driveId + '&sz=w1000';
+            } else {
+                img.src = fallbackUrl;
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FCF9F5; color: #1F1618; overflow-x: hidden; }
+        h1, h2, h3, .font-editorial { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+        .btn-shimmer { position: relative; overflow: hidden; }
+        .btn-shimmer::after {
+            content: ''; position: absolute; top: -50%; left: -60%; width: 40%; height: 200%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 100%);
+            transform: rotate(25deg); animation: shimmer 3.2s infinite;
+        }
+        @keyframes shimmer { 0% { left: -60%; } 35%, 100% { left: 130%; } }
+
+        .bg-hero-radial { background: radial-gradient(circle at 78% 22%, rgba(155, 41, 70, 0.38) 0%, rgba(36, 6, 14, 0.98) 70%), #24060e; }
+        .bg-mockup-stage { background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.22) 0%, rgba(70, 18, 32, 0.88) 75%), #24060e; }
+        .whatsapp-bg {
+            background-color: #E5DDD5;
+            background-image: radial-gradient(rgba(0,0,0,0.04) 1px, transparent 0);
+            background-size: 16px 16px;
+        }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F7F1E8; }
+        ::-webkit-scrollbar-thumb { background: #9b2946; border-radius: 4px; }
+    </style>
+</head>
+<body class="antialiased selection:bg-wine-700 selection:text-white pb-24 md:pb-0">
+
+    <!-- BARRA DE TOPO DE ESCASSEZ COM CRONÔMETRO -->
+    <div class="bg-wine-950 text-champagne-100 border-b border-wine-800/60 py-2.5 px-4 text-center text-xs sm:text-sm font-medium relative z-40">
+        <div class="max-w-6xl mx-auto flex items-center justify-center gap-2.5 flex-wrap">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-wine-800 text-gold-400 text-xs font-bold tracking-wide uppercase border border-gold-400/30">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                Condição Especial Hoje
+            </span>
+            <span>Acesso Imediato ao <strong>Curso Evoluindo no Amor</strong> + <strong>2 Bônus Exclusivos</strong> encerra em:</span>
+            <span id="top-countdown" class="font-mono font-extrabold text-gold-400 bg-white/10 px-2.5 py-0.5 rounded-md border border-gold-400/30">14:59</span>
+        </div>
+    </div>
+
+    <!-- CABEÇALHO (LOGO E NOME VISÍVEIS NO MOBILE E DESKTOP) -->
+    <header class="sticky top-0 z-30 backdrop-blur-md bg-wine-950/95 border-b border-white/10 text-white transition-all">
+        <div class="max-w-6xl mx-auto px-3.5 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between gap-2">
+            <a href="#" class="flex items-center gap-2.5 sm:gap-3.5 group min-w-0">
+                <img 
+                    referrerpolicy="no-referrer"
+                    src="https://lh3.googleusercontent.com/d/16gLnNtCh58YWbOI2S5k04spu1fdmIDDx=w500" 
+                    onerror="handleDriveImageError(this, '16gLnNtCh58YWbOI2S5k04spu1fdmIDDx', 'https://placehold.co/220x80/24060e/D4AF37?text=Evoluindo+no+Amor')"
+                    alt="Logo Curso Evoluindo no Amor" 
+                    class="h-11 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md shrink-0"
+                >
+                <div class="flex flex-col min-w-0">
+                    <span class="font-editorial text-base sm:text-2xl font-bold tracking-wide text-champagne-50 leading-none truncate">Evoluindo no Amor</span>
+                    <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-gold-400 font-semibold mt-0.5 sm:mt-1 truncate">Curso • Vídeo & Texto</span>
+                </div>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-7 text-sm text-champagne-200/90 font-medium">
+                <a href="#identificacao" class="hover:text-gold-400 transition">Para Quem É</a>
+                <a href="#conteudo-curso" class="hover:text-gold-400 transition">Aulas e Módulos</a>
+                <a href="#bonus-exclusivos" class="hover:text-gold-400 transition">2 Bônus Exclusivos</a>
+                <a href="#depoimentos" class="hover:text-gold-400 transition">Depoimentos</a>
+                <a href="#especialista" class="hover:text-gold-400 transition">A Especialista</a>
+            </nav>
+
+            <div class="flex items-center shrink-0">
+                <a href="#oferta" class="px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-gold-500 to-gold-400 hover:from-gold-400 hover:to-gold-300 text-wine-950 text-xs sm:text-sm font-extrabold shadow-md transition transform hover:-translate-y-0.5 whitespace-nowrap">
+                    Quero Me Inscrever
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- PRIMEIRA DOBRA: VERSÃO 1 CLÁSSICA (OTIMIZADA PARA MOBILE E DESKTOP COM BOTÃO ABAIXO DA IMAGEM) -->
+    <section class="bg-hero-radial text-white pt-6 pb-14 lg:py-16 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+            
+            <div class="flex flex-col items-center text-center space-y-4 sm:space-y-6">
+                
+                <!-- Nome do Produto em Destaque Imediato no Topo -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-gold-400/50 text-gold-300 text-xs sm:text-sm font-extrabold uppercase tracking-widest shadow-sm">
+                    <span>★ CURSO EVOLUINDO NO AMOR • VÍDEO & TEXTO</span>
+                </div>
+
+                <!-- Headline ajustada e legível no Mobile e Desktop -->
+                <h1 class="text-2xl sm:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight text-champagne-50 max-w-3xl mx-auto">
+                    Quebre o ciclo de desgaste e construa um <span class="italic font-normal text-gold-400 underline decoration-gold-500/60 decoration-1 underline-offset-4">amor maduro, seguro e apaixonante.</span>
+                </h1>
+
+                <!-- Subheadline Enxuta -->
+                <p class="text-sm sm:text-lg text-champagne-200/95 leading-relaxed max-w-2xl mx-auto font-normal">
+                    O treinamento prático em <strong>vídeo-aulas + guia completo em texto</strong> para curar inseguranças, desarmar brigas e viver uma relação com parceria, respeito e reciprocidade.
+                </p>
+
+                <!-- Imagem do Produto (Combo) Acima do Botão -->
+                <div class="w-full max-w-md sm:max-w-lg pt-1">
+                    <div class="relative mx-auto rounded-3xl bg-gradient-to-b from-gold-400/40 via-wine-800/50 to-wine-950 p-2.5 sm:p-3.5 shadow-2xl border border-gold-400/50">
+                        <div class="relative rounded-2xl overflow-hidden bg-mockup-stage flex flex-col items-center justify-between p-4 sm:p-6 group">
+                            <div class="w-full flex items-center justify-center py-1">
+                                <img 
+                                    referrerpolicy="no-referrer"
+                                    src="https://lh3.googleusercontent.com/d/1OW0_E1TVWhoRMTspu5GbEE_h_FBqGd0Z=w1000" 
+                                    onerror="handleDriveImageError(this, '1OW0_E1TVWhoRMTspu5GbEE_h_FBqGd0Z', 'https://placehold.co/720x520/461220/D4AF37?text=Combo+Evoluindo+no+Amor')"
+                                    alt="Combo Completo Curso Evoluindo no Amor" 
+                                    class="max-h-52 sm:max-h-64 w-auto object-contain drop-shadow-2xl group-hover:scale-105 transition duration-700"
+                                >
+                            </div>
+                            <div class="w-full pt-3 mt-2 border-t border-white/10 text-center">
+                                <p class="font-editorial text-xl sm:text-2xl font-bold text-champagne-50 leading-none">
+                                    Curso Evoluindo <span class="italic font-normal text-gold-400">no Amor</span>
+                                </p>
+                                <p class="text-[11px] sm:text-xs text-champagne-200/80 mt-1">
+                                    Aulas em Vídeo + Guia Prático em Texto + 2 Bônus Exclusivos
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botão CTA Principal Embaixo da Imagem do Produto -->
+                <div class="w-full max-w-md sm:max-w-lg pt-2 flex flex-col items-center gap-3">
+                    <a href="#oferta" class="btn-shimmer w-full inline-flex items-center justify-center gap-3 px-8 py-4 sm:py-5 rounded-2xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-emerald-600 hover:from-emerald-500 text-white font-extrabold text-base sm:text-xl shadow-glow transition transform hover:-translate-y-0.5 text-center">
+                        <span>QUERO ACESSAR O CURSO COMPLETO</span>
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                    </a>
+                    
+                    <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs sm:text-sm font-semibold text-champagne-200/90">
+                        <span class="inline-flex items-center gap-1.5 text-emerald-400 font-bold">
+                            <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+                            Risco Zero: Garantia de 7 Dias
+                        </span>
+                        <span class="text-white/30">•</span>
+                        <span class="text-champagne-100">Acesso Imediato por <strong>R$ 47,00</strong></span>
+                    </div>
+                </div>
+
+                <!-- 3 Pilares Rápidos Abaixo do Botão -->
+                <div class="grid sm:grid-cols-3 gap-3 pt-4 w-full max-w-4xl text-left text-xs sm:text-sm text-champagne-100/95">
+                    <div class="flex items-start gap-2.5 bg-white/5 border border-white/10 p-3.5 rounded-xl">
+                        <span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/20 border border-emerald-400/50 flex items-center justify-center text-emerald-300 shrink-0 font-bold text-xs">✓</span>
+                        <span><strong>Formato Duplo:</strong> vídeo-aulas rápidas + guia em texto para consultar quando quiser.</span>
+                    </div>
+                    <div class="flex items-start gap-2.5 bg-white/5 border border-white/10 p-3.5 rounded-xl">
+                        <span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/20 border border-emerald-400/50 flex items-center justify-center text-emerald-300 shrink-0 font-bold text-xs">✓</span>
+                        <span><strong>Diálogo Sem Brigas:</strong> converse sobre temas difíceis sem cobranças ou explosões.</span>
+                    </div>
+                    <div class="flex items-start gap-2.5 bg-white/5 border border-white/10 p-3.5 rounded-xl">
+                        <span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/20 border border-emerald-400/50 flex items-center justify-center text-emerald-300 shrink-0 font-bold text-xs">✓</span>
+                        <span><strong>Reconexão Real:</strong> saia do piloto automático e reacenda a admiração mútua.</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO: IDENTIFICAÇÃO PROFUNDA E EMPÁTICA -->
+    <section id="identificacao" class="py-20 px-4 sm:px-6 max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-5 space-y-4">
+                <div class="relative rounded-3xl overflow-hidden shadow-luxury border-4 border-white aspect-[4/5] bg-wine-900">
+                    <img 
+                        src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=85" 
+                        onerror="this.src='https://placehold.co/640x800/681b30/FCF9F5?text=Reconexao+Afetiva'"
+                        alt="Casal buscando reconexão e diálogo maduro" 
+                        class="w-full h-full object-cover"
+                    >
+                    <div class="absolute inset-0 bg-gradient-to-t from-wine-950/60 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 right-4 bg-wine-950/85 backdrop-blur-md border border-gold-400/30 rounded-2xl p-4 text-white">
+                        <p class="text-xs uppercase tracking-widest text-gold-400 font-bold mb-1">Diagnóstico Emocional</p>
+                        <p class="text-xs sm:text-sm text-champagne-100 leading-relaxed">
+                            Relacionamentos não acabam da noite para o dia; eles pedem socorro quando a rotina substitui a escuta e a admiração.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-wine-700 bg-wine-100 px-3.5 py-1.5 rounded-full inline-block border border-wine-200">
+                    A Raiz do Desgaste Afetivo
+                </span>
+
+                <h2 class="text-3xl sm:text-5xl font-bold text-wine-950 leading-tight">
+                    Quando a rotina, as cobranças e a falta de diálogo começam a afastar quem você ama...
+                </h2>
+
+                <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
+                    Muitos casais e pessoas que desejam viver um grande amor caem na mesma armadilha: tentam resolver problemas emocionais profundos no improviso. Engolem o que sentem até explodir, cobram atenção em forma de crítica ou deixam a rotina apagar o encanto que existia no início.
+                </p>
+
+                <blockquote class="my-6 p-6 sm:p-7 rounded-2xl bg-gradient-to-r from-wine-50 via-champagne-100 to-white border-l-4 border-wine-700 shadow-sm relative">
+                    <p class="font-editorial text-2xl sm:text-3xl italic text-wine-950 leading-snug font-semibold">
+                        "O amor não esfria de repente; ele se desgasta no silêncio das pequenas dores não resolvidas."
+                    </p>
+                </blockquote>
+
+                <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
+                    A verdade que trabalhamos profundamente dentro do curso <strong>Evoluindo no Amor</strong> é clara: <strong>relacionamentos felizes e duradouros não são fruto de sorte, mas de inteligência emocional, posicionamento e intencionalidade.</strong>
+                </p>
+
+                <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
+                    Através das nossas <strong>vídeo-aulas explicativas</strong> e do <strong>conteúdo completo em texto</strong>, você vai aprender na prática como desarmar conflitos, curar feridas emocionais, resgatar o respeito e reacender a chama da admiração.
+                </p>
+
+                <div class="pt-3">
+                    <a href="#oferta" class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-wine-800 hover:bg-wine-700 text-white font-extrabold text-base shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 border-2 border-gold-400/60 w-full sm:w-auto text-center">
+                        <span>Sim, quero começar minha evolução</span>
+                        <svg class="w-5 h-5 text-gold-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTEÚDO COMPLETO DO CURSO (VÍDEO + TEXTO) -->
+    <section id="conteudo-curso" class="py-20 bg-wine-950 text-white px-4 sm:px-6 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-400 bg-white/10 px-4 py-1.5 rounded-full inline-block border border-gold-400/30">
+                    Metodologia Completa
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-bold text-champagne-50">
+                    O Que Você Vai Aprender no <span class="italic font-normal text-gold-400">Evoluindo no Amor</span>
+                </h2>
+                <p class="text-champagne-200/85 text-base sm:text-lg">
+                    Você recebe o aprendizado em formato duplo — <strong>Aulas em Vídeo + Conteúdo Estruturado em Texto</strong> — para assistir onde quiser e aplicar no seu relacionamento:
+                </p>
+            </div>
+
+            <div class="mt-10 grid md:grid-cols-2 gap-6">
+                <div class="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-wine-900 to-wine-950 border border-gold-400/30 flex items-start gap-5">
+                    <div class="w-14 h-14 rounded-2xl bg-gold-500 text-wine-950 flex items-center justify-center shrink-0 font-extrabold text-2xl shadow-lg">▶</div>
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold uppercase tracking-widest text-gold-400">Formato 01 • Aulas Gravadas</span>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white">Módulos em Vídeo-Aulas</h3>
+                        <p class="text-sm text-champagne-200/85 leading-relaxed">
+                            Aulas diretas ao ponto, acolhedoras e profundas para você assistir pelo celular, tablet ou computador quantas vezes quiser.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-wine-900 to-wine-950 border border-gold-400/30 flex items-start gap-5">
+                    <div class="w-14 h-14 rounded-2xl bg-champagne-100 text-wine-950 flex items-center justify-center shrink-0 font-extrabold text-2xl shadow-lg">📖</div>
+                    <div class="space-y-2">
+                        <span class="text-xs font-bold uppercase tracking-widest text-gold-400">Formato 02 • Material de Leitura</span>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white">Guia Completo em Texto</h3>
+                        <p class="text-sm text-champagne-200/85 leading-relaxed">
+                            Todo o embasamento do curso organizado em texto com exercícios práticos, chaves de reflexão e roteiros de diálogo para consulta rápida.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+                    <span class="text-xs font-extrabold text-gold-400 uppercase tracking-wider">Pilar 01</span>
+                    <h4 class="text-xl font-bold text-champagne-50">Autoconhecimento e Cura</h4>
+                    <p class="text-xs sm:text-sm text-champagne-200/80 leading-relaxed">Identifique bloqueios, inseguranças e padrões repetitivos que sabotam a paz no relacionamento.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+                    <span class="text-xs font-extrabold text-gold-400 uppercase tracking-wider">Pilar 02</span>
+                    <h4 class="text-xl font-bold text-champagne-50">Diálogo Sem Conflitos</h4>
+                    <p class="text-xs sm:text-sm text-champagne-200/80 leading-relaxed">Como expressar suas necessidades e ser ouvido(a) com respeito, sem gerar defesas ou discussões desgastantes.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+                    <span class="text-xs font-extrabold text-gold-400 uppercase tracking-wider">Pilar 03</span>
+                    <h4 class="text-xl font-bold text-champagne-50">Resgate da Admiração</h4>
+                    <p class="text-xs sm:text-sm text-champagne-200/80 leading-relaxed">Atitudes diárias para quebrar a frieza da rotina, reconstruir a confiança e fortalecer a cumplicidade do casal.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+                    <span class="text-xs font-extrabold text-gold-400 uppercase tracking-wider">Pilar 04</span>
+                    <h4 class="text-xl font-bold text-champagne-50">Intimidade e Conexão</h4>
+                    <p class="text-xs sm:text-sm text-champagne-200/80 leading-relaxed">Como manter acesa a chama do desejo, do carinho e da presença intencional a dois no longo prazo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OS 2 BÔNUS EXCLUSIVOS OFICIAIS (COM ETIQUETA SEPARADA DA IMAGEM NO MOBILE E DESKTOP) -->
+    <section id="bonus-exclusivos" class="py-20 bg-champagne-100 border-y border-champagne-200 px-4 sm:px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-wine-700 bg-wine-100 px-4 py-1.5 rounded-full inline-block border border-wine-200">
+                    Presentes Inclusos na Sua Inscrição
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-bold text-wine-950">
+                    Entrando hoje, você recebe estes <span class="underline decoration-wine-600">2 Bônus Exclusivos</span> 100% Gratuitos
+                </h2>
+                <p class="text-gray-600 text-base sm:text-lg">
+                    Materiais práticos desenvolvidos para acelerar a restauração da harmonia e do romantismo no seu relacionamento:
+                </p>
+            </div>
+
+            <div class="mt-12 grid md:grid-cols-2 gap-8">
+                <!-- BÔNUS 1 -->
+                <div class="bg-white rounded-3xl overflow-hidden border-2 border-champagne-300 shadow-luxury flex flex-col justify-between group">
+                    <div>
+                        <div class="bg-mockup-stage p-5 sm:p-6 flex flex-col items-center">
+                            <!-- Etiqueta posicionada acima da imagem sem sobrepor o livro -->
+                            <div class="w-full flex justify-start mb-3">
+                                <span class="bg-gold-400 text-wine-950 text-[11px] font-extrabold uppercase px-3.5 py-1 rounded-full shadow-md tracking-wide">
+                                    ★ Bônus Exclusivo #1
+                                </span>
+                            </div>
+                            <div class="h-52 sm:h-56 w-full flex items-center justify-center">
+                                <img 
+                                    referrerpolicy="no-referrer"
+                                    src="https://lh3.googleusercontent.com/d/1h0SyY8UaZ7nHJO94JVp2l5pAF2GFjUVQ=w900" 
+                                    onerror="handleDriveImageError(this, '1h0SyY8UaZ7nHJO94JVp2l5pAF2GFjUVQ', 'https://placehold.co/600x450/461220/D4AF37?text=Guia+de+Emergencia+7+Dias')"
+                                    alt="Mockup Guia de Emergência para Salvar Casamento em 7 Dias" 
+                                    class="max-w-full max-h-full object-contain drop-shadow-2xl group-hover:scale-105 transition duration-500"
+                                >
+                            </div>
+                        </div>
+                        <div class="p-6 sm:p-7 space-y-3">
+                            <span class="text-xs font-bold uppercase tracking-wider text-wine-700">Plano de Ação Imediata</span>
+                            <h3 class="text-2xl sm:text-3xl font-bold text-wine-950 leading-snug">Guia de Emergência para Salvar Casamento em 7 Dias</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                Um protocolo prático, dia após dia, criado para estancar crises agudas, baixar a guarda emocional do casal e interromper o ciclo de brigas e distanciamento em apenas uma semana.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 sm:px-7 pb-6 pt-4 border-t border-gray-100 flex items-center justify-between gap-2 text-xs sm:text-sm bg-champagne-50/60">
+                        <span class="text-gray-500">Vendido separadamente: <del class="text-red-600 font-bold whitespace-nowrap">R$ 27,00</del></span>
+                        <span class="font-extrabold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-lg whitespace-nowrap shrink-0">HOJE: GRÁTIS</span>
+                    </div>
+                </div>
+
+                <!-- BÔNUS 2 -->
+                <div class="bg-white rounded-3xl overflow-hidden border-2 border-champagne-300 shadow-luxury flex flex-col justify-between group">
+                    <div>
+                        <div class="bg-mockup-stage p-5 sm:p-6 flex flex-col items-center">
+                            <!-- Etiqueta posicionada acima da imagem sem sobrepor o livro -->
+                            <div class="w-full flex justify-start mb-3">
+                                <span class="bg-gold-400 text-wine-950 text-[11px] font-extrabold uppercase px-3.5 py-1 rounded-full shadow-md tracking-wide">
+                                    ★ Bônus Exclusivo #2
+                                </span>
+                            </div>
+                            <div class="h-52 sm:h-56 w-full flex items-center justify-center">
+                                <img 
+                                    referrerpolicy="no-referrer"
+                                    src="https://lh3.googleusercontent.com/d/1jOoESgAidCeaDV5rsEHGTUGPD9cyE5lV=w900" 
+                                    onerror="handleDriveImageError(this, '1jOoESgAidCeaDV5rsEHGTUGPD9cyE5lV', 'https://placehold.co/600x450/461220/D4AF37?text=20+Receitas+Jantar+Romantico')"
+                                    alt="Mockup 20 Receitas Exóticas para Jantar Romântico" 
+                                    class="max-w-full max-h-full object-contain drop-shadow-2xl group-hover:scale-105 transition duration-500"
+                                >
+                            </div>
+                        </div>
+                        <div class="p-6 sm:p-7 space-y-3">
+                            <span class="text-xs font-bold uppercase tracking-wider text-wine-700">Experiência e Reconexão a Dois</span>
+                            <h3 class="text-2xl sm:text-3xl font-bold text-wine-950 leading-snug">20 Receitas Exóticas para Jantar Romântico</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                Quebre a rotina e surpreenda quem você ama! Uma seleção especial de receitas envolventes, sofisticadas e fáceis de preparar para criar uma noite inesquecível e despertar os sentidos.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="px-6 sm:px-7 pb-6 pt-4 border-t border-gray-100 flex items-center justify-between gap-2 text-xs sm:text-sm bg-champagne-50/60">
+                        <span class="text-gray-500">Vendido separadamente: <del class="text-red-600 font-bold whitespace-nowrap">R$ 26,00</del></span>
+                        <span class="font-extrabold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-lg whitespace-nowrap shrink-0">HOJE: GRÁTIS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROVA SOCIAL (PRINTS DE WHATSAPP REAIS + AVATARES CONGRUENTES) -->
+    <section id="depoimentos" class="py-20 px-4 sm:px-6 max-w-6xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+            <span class="text-xs font-bold uppercase tracking-widest text-wine-700 bg-wine-100 px-4 py-1.5 rounded-full inline-block border border-wine-200">
+                Resultados Reais
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-bold text-wine-950">Histórias de quem decidiu evoluir no amor</h2>
+            <p class="text-gray-600 text-sm sm:text-base">Veja o que nossos alunos e alunas compartilham após aplicarem as aulas e os bônus:</p>
+        </div>
+
+        <div class="mt-12 grid md:grid-cols-3 gap-7">
+            <!-- Depoimento 1 -->
+            <div class="bg-white p-5 rounded-3xl border border-champagne-300 shadow-luxury flex flex-col justify-between space-y-4">
+                <div class="space-y-4">
+                    <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-inner">
+                        <div class="bg-[#075E54] text-white px-3.5 py-2.5 flex items-center gap-2.5">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=160&q=80" alt="Foto Camila" class="w-8 h-8 rounded-full object-cover border border-white/40">
+                            <div class="leading-tight">
+                                <p class="text-xs font-bold">Camila Martins</p>
+                                <p class="text-[10px] text-emerald-200">online</p>
+                            </div>
+                        </div>
+                        <div class="whatsapp-bg p-3.5 space-y-2 min-h-[150px] flex flex-col justify-center">
+                            <div class="bg-white text-gray-800 p-3 rounded-xl rounded-tl-none text-xs leading-relaxed shadow-sm max-w-[92%]">
+                                Oi! Passando pra agradecer de coração ❤️ As aulas abriram meus olhos pra padrões que eu repetia sem perceber. Aplicamos o Guia de Emergência de 7 Dias e voltamos a conversar com carinho e respeito!
+                                <div class="text-[10px] text-gray-400 text-right mt-1">14:22</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between px-1">
+                        <div class="text-gold-500 text-sm tracking-wider">★★★★★</div>
+                        <span class="text-[11px] text-gray-400 font-medium">Mensagem recebida via WhatsApp</span>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-gray-100 flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=160&q=80" alt="Camila M." class="w-11 h-11 rounded-full object-cover border-2 border-wine-200">
+                    <div>
+                        <p class="text-sm font-bold text-wine-950">Camila M., 31 anos</p>
+                        <p class="text-[11px] text-emerald-600 font-bold">✓ Aluna Verificada</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Depoimento 2 -->
+            <div class="bg-white p-5 rounded-3xl border border-champagne-300 shadow-luxury flex flex-col justify-between space-y-4">
+                <div class="space-y-4">
+                    <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-inner">
+                        <div class="bg-[#075E54] text-white px-3.5 py-2.5 flex items-center gap-2.5">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=160&q=80" alt="Foto Renata" class="w-8 h-8 rounded-full object-cover border border-white/40">
+                            <div class="leading-tight">
+                                <p class="text-xs font-bold">Renata Andrade</p>
+                                <p class="text-[10px] text-emerald-200">online</p>
+                            </div>
+                        </div>
+                        <div class="whatsapp-bg p-3.5 space-y-2 min-h-[150px] flex flex-col justify-center">
+                            <div class="bg-white text-gray-800 p-3 rounded-xl rounded-tl-none text-xs leading-relaxed shadow-sm max-w-[92%]">
+                                Ter tanto as vídeo-aulas quanto o material em texto fez toda a diferença pra mim. Recuperei minha autoestima, aprendi a me posicionar sem brigas e ainda surpreendi meu marido com um jantar lindo do bônus! 😍
+                                <div class="text-[10px] text-gray-400 text-right mt-1">19:45</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between px-1">
+                        <div class="text-gold-500 text-sm tracking-wider">★★★★★</div>
+                        <span class="text-[11px] text-gray-400 font-medium">Mensagem recebida via WhatsApp</span>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-gray-100 flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=160&q=80" alt="Renata A." class="w-11 h-11 rounded-full object-cover border-2 border-wine-200">
+                    <div>
+                        <p class="text-sm font-bold text-wine-950">Renata A., 28 anos</p>
+                        <p class="text-[11px] text-emerald-600 font-bold">✓ Aluna Verificada</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Depoimento 3 -->
+            <div class="bg-white p-5 rounded-3xl border border-champagne-300 shadow-luxury flex flex-col justify-between space-y-4">
+                <div class="space-y-4">
+                    <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-inner">
+                        <div class="bg-[#075E54] text-white px-3.5 py-2.5 flex items-center gap-2.5">
+                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=160&q=80" alt="Foto Lucas" class="w-8 h-8 rounded-full object-cover border border-white/40">
+                            <div class="leading-tight">
+                                <p class="text-xs font-bold">Lucas Ferreira</p>
+                                <p class="text-[10px] text-emerald-200">online</p>
+                            </div>
+                        </div>
+                        <div class="whatsapp-bg p-3.5 space-y-2 min-h-[150px] flex flex-col justify-center">
+                            <div class="bg-white text-gray-800 p-3 rounded-xl rounded-tl-none text-xs leading-relaxed shadow-sm max-w-[92%]">
+                                Muito direto ao ponto, profundo e acolhedor. Nosso casamento estava caindo no automático e as orientações do curso nos ajudaram a resgatar a parceria e a admiração que tínhamos perdido na rotina.
+                                <div class="text-[10px] text-gray-400 text-right mt-1">18:10</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between px-1">
+                        <div class="text-gold-500 text-sm tracking-wider">★★★★★</div>
+                        <span class="text-[11px] text-gray-400 font-medium">Mensagem recebida via WhatsApp</span>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-gray-100 flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=160&q=80" alt="Lucas F." class="w-11 h-11 rounded-full object-cover border-2 border-wine-200">
+                    <div>
+                        <p class="text-sm font-bold text-wine-950">Lucas F., 36 anos</p>
+                        <p class="text-[11px] text-emerald-600 font-bold">✓ Aluno Verificado</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- A ESPECIALISTA -->
+    <section id="especialista" class="py-16 px-4 sm:px-6 max-w-5xl mx-auto">
+        <div class="bg-white rounded-3xl p-8 sm:p-12 border border-champagne-200 shadow-luxury grid md:grid-cols-12 gap-8 items-center">
+            <div class="md:col-span-5 flex flex-col items-center text-center">
+                <div class="w-60 h-72 sm:w-64 sm:h-80 rounded-3xl overflow-hidden shadow-xl relative border-4 border-gold-400 bg-wine-950">
+                    <img 
+                        referrerpolicy="no-referrer"
+                        src="https://lh3.googleusercontent.com/d/1-HoePyx83wIFJMQdAe-b8SFVgyHGS_kL=w800" 
+                        onerror="handleDriveImageError(this, '1-HoePyx83wIFJMQdAe-b8SFVgyHGS_kL', 'https://placehold.co/500x620/461220/D4AF37?text=Especialista')"
+                        alt="Especialista do Curso Evoluindo no Amor" 
+                        class="w-full h-full object-cover object-top"
+                    >
+                </div>
+                <span class="mt-4 font-bold text-wine-950 text-lg">Compromisso com a Sua Transformação</span>
+                <span class="text-xs text-wine-700 font-semibold uppercase tracking-wider">Mentoria & Desenvolvimento Afetivo</span>
+            </div>
+            <div class="md:col-span-7 space-y-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-wine-700 bg-wine-100 px-3.5 py-1.5 rounded-full inline-block">
+                    Quem Vai Guiar Você
+                </span>
+                <h3 class="text-3xl sm:text-4xl font-bold text-wine-950 leading-tight">
+                    Criado para quem busca maturidade afetiva, paz emocional e reconexão de verdade
+                </h3>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                    O curso <strong>Evoluindo no Amor</strong> nasceu com uma missão clara: entregar a você as ferramentas emocionais e práticas que ninguém ensina sobre como construir, proteger e renovar um relacionamento saudável.
+                </p>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                    Cada vídeo-aula e cada página do material em texto foram desenhadas com acolhimento, clareza e direção prática para que você pare de sofrer com ciclos repetitivos e passe a viver o amor seguro e recíproco que merece.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFERTA IRRESISTÍVEL + ANCORAGEM R$ 197 POR R$ 47 + KIWIFY -->
+    <section id="oferta" class="py-20 px-4 sm:px-6 bg-hero-radial text-white relative overflow-hidden">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="bg-white text-gray-900 rounded-3xl p-7 sm:p-12 shadow-2xl border-2 border-gold-400">
+                <div class="text-center max-w-2xl mx-auto space-y-2">
+                    <span class="text-xs font-extrabold uppercase tracking-widest text-wine-700 bg-wine-100 px-4 py-1.5 rounded-full inline-block">
+                        Inscrição com Condição Especial
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-bold text-wine-950">
+                        Tudo o que você vai receber hoje
+                    </h2>
+                    <p class="text-gray-600 text-sm sm:text-base">
+                        Acesso imediato ao pacote completo para transformar seu relacionamento:
+                    </p>
+                </div>
+
+                <!-- Imagem do Combo Oficial -->
+                <div class="mt-8 flex justify-center">
+                    <div class="relative rounded-2xl overflow-hidden border-2 border-gold-400/50 shadow-xl max-w-xl w-full bg-mockup-stage p-6 flex items-center justify-center h-60 sm:h-72">
+                        <img 
+                            referrerpolicy="no-referrer"
+                            src="https://lh3.googleusercontent.com/d/1OW0_E1TVWhoRMTspu5GbEE_h_FBqGd0Z=w1000" 
+                            onerror="handleDriveImageError(this, '1OW0_E1TVWhoRMTspu5GbEE_h_FBqGd0Z', 'https://placehold.co/720x500/461220/D4AF37?text=Combo+Evoluindo+no+Amor')"
+                            alt="Combo Curso Evoluindo no Amor" 
+                            class="max-w-full max-h-full object-contain drop-shadow-2xl"
+                        >
+                    </div>
+                </div>
+
+                <!-- Empilhamento de Valor Congruente (Total R$ 197,00) -->
+                <div class="mt-8 bg-champagne-50 rounded-2xl p-5 sm:p-7 border border-champagne-200 space-y-3.5 text-sm sm:text-base">
+                    <div class="flex items-center justify-between gap-2 pb-3 border-b border-champagne-200">
+                        <span class="font-bold text-wine-950 flex items-center gap-2">
+                            <span class="w-5 h-5 rounded-full bg-emerald-600 text-white text-xs flex items-center justify-center shrink-0">✓</span>
+                            Curso Completo Evoluindo no Amor (Aulas em Vídeo)
+                        </span>
+                        <span class="text-gray-400 line-through font-semibold shrink-0">R$ 97,00</span>
+                    </div>
+                    <div class="flex items-center justify-between gap-2 pb-3 border-b border-champagne-200">
+                        <span class="font-bold text-wine-950 flex items-center gap-2">
+                            <span class="w-5 h-5 rounded-full bg-emerald-600 text-white text-xs flex items-center justify-center shrink-0">✓</span>
+                            Conteúdo Completo do Curso em Texto (Guia Prático)
+                        </span>
+                        <span class="text-gray-400 line-through font-semibold shrink-0">R$ 47,00</span>
+                    </div>
+                    <div class="flex items-center justify-between gap-2 pb-3 border-b border-champagne-200">
+                        <span class="text-gray-800 flex items-center gap-2">
+                            <span class="w-5 h-5 rounded-full bg-emerald-600 text-white text-xs flex items-center justify-center shrink-0">✓</span>
+                            Bônus Exclusivo #1: Guia de Emergência para Salvar Casamento em 7 Dias
+                        </span>
+                        <span class="text-gray-400 line-through font-semibold shrink-0">R$ 27,00</span>
+                    </div>
+                    <div class="flex items-center justify-between gap-2">
+                        <span class="text-gray-800 flex items-center gap-2">
+                            <span class="w-5 h-5 rounded-full bg-emerald-600 text-white text-xs flex items-center justify-center shrink-0">✓</span>
+                            Bônus Exclusivo #2: 20 Receitas Exóticas para Jantar Romântico
+                        </span>
+                        <span class="text-gray-400 line-through font-semibold shrink-0">R$ 26,00</span>
+                    </div>
+                </div>
+
+                <!-- Bloco de Preço Otimizado -->
+                <div class="mt-8 text-center space-y-2 bg-wine-50/70 py-6 px-4 rounded-2xl border border-wine-100">
+                    <p class="text-sm sm:text-base text-gray-600 font-medium">
+                        Valor total separado: <del class="font-extrabold text-red-600 text-base sm:text-lg">R$ 197,00</del>
+                    </p>
+                    <p class="text-xs font-extrabold uppercase tracking-widest text-wine-800 pt-1">
+                        POR APENAS:
+                    </p>
+                    <div class="flex items-baseline justify-center gap-2 text-wine-950 py-1">
+                        <span class="font-editorial text-6xl sm:text-7xl font-bold tracking-tight text-wine-900">R$ 47,00</span>
+                    </div>
+                    <p class="text-sm sm:text-base text-gray-700 font-semibold">
+                        à vista no PIX <span class="text-wine-800 font-bold">ou em até 10x no cartão de crédito</span>
+                    </p>
+                </div>
+
+                <!-- BOTÃO FINAL DIRETO PARA O CHECKOUT DA KIWIFY -->
+                <div class="mt-8">
+                    <a href="https://pay.kiwify.com.br/ALu3sst" target="_blank" rel="noopener noreferrer" class="btn-shimmer w-full py-5 px-6 rounded-2xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-emerald-600 hover:from-emerald-500 hover:to-emerald-400 text-white font-extrabold text-lg sm:text-xl shadow-glow flex items-center justify-center gap-3 transition transform hover:-translate-y-0.5 text-center">
+                        <span>SIM! QUERO ACESSAR O CURSO + 2 BÔNUS AGORA</span>
+                        <svg class="w-6 h-6 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                    </a>
+                </div>
+
+                <!-- CHECKMARKS VERDES DE CONVERSÃO -->
+                <div class="mt-4 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm font-bold text-emerald-700">
+                    <span class="flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Acesso Imediato
+                    </span>
+                    <span class="flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Compra 100% Segura
+                    </span>
+                    <span class="flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                        Garantia Incondicional de 7 Dias
+                    </span>
+                </div>
+
+                <!-- BLOCO DE GARANTIA DE 7 DIAS -->
+                <div class="mt-8 pt-7 border-t border-gray-200 flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
+                    <div class="w-20 h-20 rounded-2xl bg-wine-950 text-gold-400 border-2 border-gold-400 flex flex-col items-center justify-center shrink-0 shadow-md">
+                        <span class="font-editorial text-2xl font-bold leading-none">7 DIAS</span>
+                        <span class="text-[9px] uppercase tracking-widest font-bold mt-1 text-champagne-100">Garantia</span>
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-xl font-bold text-wine-950">Garantia Incondicional de 7 Dias — Seu Risco é Zero</h4>
+                        <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                            Entre, assista às vídeo-aulas, leia o material em texto e aproveite os 2 bônus exclusivos por <strong>7 dias completos</strong>. Se por qualquer motivo você sentir que o curso não superou suas expectativas, basta solicitar o reembolso dentro desse prazo e devolveremos <strong>100% do seu investimento</strong> sem burocracia.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PERGUNTAS FREQUENTES -->
+    <section id="faq" class="py-16 px-4 sm:px-6 max-w-4xl mx-auto">
+        <div class="text-center space-y-3 mb-10">
+            <span class="text-xs font-bold uppercase tracking-widest text-wine-700 bg-wine-100 px-3.5 py-1.5 rounded-full inline-block">
+                Tire Suas Dúvidas
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-wine-950">Perguntas Frequentes</h2>
+        </div>
+
+        <div class="space-y-4">
+            <details class="group bg-white rounded-2xl border border-champagne-200 p-5 shadow-sm">
+                <summary class="flex items-center justify-between cursor-pointer font-bold text-wine-950 text-base">
+                    <span>Como vou receber o acesso ao curso e aos 2 bônus?</span>
+                    <span class="text-gold-500 group-open:rotate-45 transition-transform text-xl font-bold">+</span>
+                </summary>
+                <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+                    Assim que o seu pagamento for confirmado pela Kiwify (imediato para PIX ou Cartão), você receberá automaticamente no seu e-mail os dados de acesso às vídeo-aulas, ao material completo em texto e aos 2 bônus exclusivos.
+                </p>
+            </details>
+
+            <details class="group bg-white rounded-2xl border border-champagne-200 p-5 shadow-sm">
+                <summary class="flex items-center justify-between cursor-pointer font-bold text-wine-950 text-base">
+                    <span>Consigo aplicar mesmo se meu parceiro(a) não quiser participar no início?</span>
+                    <span class="text-gold-500 group-open:rotate-45 transition-transform text-xl font-bold">+</span>
+                </summary>
+                <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+                    Sim! Quando uma pessoa muda a postura emocional, a forma de comunicar e a maneira de conduzir os momentos a dois, toda a dinâmica do relacionamento se transforma naturalmente.
+                </p>
+            </details>
+
+            <details class="group bg-white rounded-2xl border border-champagne-200 p-5 shadow-sm">
+                <summary class="flex items-center justify-between cursor-pointer font-bold text-wine-950 text-base">
+                    <span>Posso assistir pelo celular?</span>
+                    <span class="text-gold-500 group-open:rotate-45 transition-transform text-xl font-bold">+</span>
+                </summary>
+                <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+                    Sim! Tanto as vídeo-aulas quanto o guia em texto e os 2 bônus podem ser acessados facilmente pelo celular, tablet ou computador, no seu próprio ritmo.
+                </p>
+            </details>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="bg-wine-950 text-champagne-200/70 py-14 px-4 sm:px-6 border-t border-wine-800/50 text-center text-xs sm:text-sm">
+        <div class="max-w-5xl mx-auto space-y-5">
+            <div class="flex flex-col items-center justify-center gap-3">
+                <img 
+                    referrerpolicy="no-referrer"
+                    src="https://lh3.googleusercontent.com/d/16gLnNtCh58YWbOI2S5k04spu1fdmIDDx=w500" 
+                    onerror="handleDriveImageError(this, '16gLnNtCh58YWbOI2S5k04spu1fdmIDDx', 'https://placehold.co/220x80/24060e/D4AF37?text=Evoluindo+no+Amor')"
+                    alt="Logo Evoluindo no Amor" 
+                    class="h-20 sm:h-24 w-auto object-contain drop-shadow-md"
+                >
+                <span class="font-editorial text-2xl sm:text-3xl font-bold text-champagne-50">Evoluindo no Amor</span>
+            </div>
+
+            <p class="max-w-xl mx-auto text-xs leading-relaxed text-champagne-300/60">
+                Todos os direitos reservados. Este curso e seus materiais complementares têm caráter educativo e de desenvolvimento pessoal e afetivo.
+            </p>
+
+            <div class="flex items-center justify-center gap-4 text-xs text-champagne-200/70 pt-1">
+                <a href="#conteudo-curso" class="hover:text-gold-400 transition">O Curso</a>
+                <span>•</span>
+                <a href="#bonus-exclusivos" class="hover:text-gold-400 transition">2 Bônus Exclusivos</a>
+                <span>•</span>
+                <a href="#oferta" class="hover:text-gold-400 transition">Inscrição</a>
+                <span>•</span>
+                <a href="#faq" class="hover:text-gold-400 transition">Dúvidas Frequentes</a>
+            </div>
+
+            <p class="text-[11px] text-champagne-300/40 pt-3">
+                © 2026 Curso Evoluindo no Amor. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- POP-UP DE NOTIFICAÇÃO DE COMPRA AO VIVO (PROVA SOCIAL) -->
+    <div id="sales-toast" class="fixed bottom-20 md:bottom-6 left-3 sm:left-5 z-40 max-w-[290px] sm:max-w-xs bg-white/95 backdrop-blur-md border-2 border-gold-400/70 rounded-2xl p-3 shadow-2xl transition-all duration-500 transform translate-y-12 opacity-0 pointer-events-none flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 font-bold text-lg shadow-inner">
+            ✓
+        </div>
+        <div class="text-xs leading-snug pr-1">
+            <p class="font-extrabold text-wine-950" id="toast-buyer">Mariana S. (São Paulo, SP)</p>
+            <p class="text-gray-600 text-[11px]">Inscreveu-se no <strong>Evoluindo no Amor</strong></p>
+            <span class="text-[10px] text-emerald-600 font-bold" id="toast-time">há 2 minutos</span>
+        </div>
+    </div>
+
+    <!-- STICKY CTA MOBILE (APARECE AO ROLAR A PÁGINA NO CELULAR) -->
+    <div id="mobile-sticky-cta" class="fixed bottom-0 left-0 right-0 w-full bg-wine-950/95 backdrop-blur-md border-t border-gold-400/40 p-3 z-50 md:hidden shadow-[0_-8px_25px_rgba(0,0,0,0.45)] transition-all duration-300 transform translate-y-full opacity-0 pointer-events-none">
+        <div class="flex items-center justify-between gap-3 max-w-md mx-auto">
+            <div class="text-white leading-tight">
+                <span class="block text-[10px] uppercase tracking-wider text-gold-400 font-bold">Curso + 2 Bônus</span>
+                <span class="text-base font-extrabold">R$ 47,00 <span class="text-[11px] font-normal text-champagne-200">no PIX ou até 10x</span></span>
+            </div>
+            <a href="https://pay.kiwify.com.br/ALu3sst" target="_blank" rel="noopener noreferrer" class="btn-shimmer flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-extrabold text-xs sm:text-sm shadow-lg flex items-center justify-center gap-1.5 text-center">
+                <span>QUERO ME INSCREVER</span>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        let remainingSeconds = 14 * 60 + 59;
+        setInterval(() => {
+            if (remainingSeconds > 0) remainingSeconds--;
+            const el = document.getElementById('top-countdown');
+            if (el) {
+                const mins = String(Math.floor(remainingSeconds / 60)).padStart(2, '0');
+                const secs = String(remainingSeconds % 60).padStart(2, '0');
+                el.textContent = `${mins}:${secs}`;
+            }
+        }, 1000);
+
+        // Controle do Botão Fixo Mobile ao dar Scroll (compatível com navegador direto e iframe)
+        const mobileStickyEl = document.getElementById('mobile-sticky-cta');
+        function showMobileStickyBar() {
+            if (!mobileStickyEl) return;
+            mobileStickyEl.classList.remove('translate-y-full', 'opacity-0', 'pointer-events-none');
+            mobileStickyEl.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+        }
+        function handleMobileScroll() {
+            if (!mobileStickyEl) return;
+            const currentScroll = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+            if (currentScroll > 160) {
+                showMobileStickyBar();
+            } else {
+                mobileStickyEl.classList.add('translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileStickyEl.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            }
+        }
+        window.addEventListener('scroll', handleMobileScroll, { passive: true });
+        window.addEventListener('touchmove', () => {
+            setTimeout(showMobileStickyBar, 250);
+        }, { passive: true });
+
+        // Pop-ups de Notificação de Pessoas que Compraram (Prova Social)
+        const recentBuyers = [
+            { name: "Mariana S. (São Paulo, SP)", time: "há 2 minutos" },
+            { name: "Fernanda L. (Belo Horizonte, MG)", time: "há 4 minutos" },
+            { name: "Rafael & Juliana (Curitiba, PR)", time: "há 6 minutos" },
+            { name: "Patrícia M. (Rio de Janeiro, RJ)", time: "há 9 minutos" },
+            { name: "Aline C. (Goiânia, GO)", time: "há 11 minutos" },
+            { name: "Carlos E. (Porto Alegre, RS)", time: "há 14 minutos" },
+            { name: "Beatriz R. (Recife, PE)", time: "há 17 minutos" }
+        ];
+        let currentBuyerIndex = 0;
+        const toastEl = document.getElementById('sales-toast');
+        const toastBuyerEl = document.getElementById('toast-buyer');
+        const toastTimeEl = document.getElementById('toast-time');
+
+        function showNextPurchaseToast() {
+            if (!toastEl || !toastBuyerEl || !toastTimeEl) return;
+            const item = recentBuyers[currentBuyerIndex];
+            toastBuyerEl.textContent = item.name;
+            toastTimeEl.textContent = item.time;
+
+            toastEl.classList.remove('translate-y-12', 'opacity-0');
+            toastEl.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toastEl.classList.remove('translate-y-0', 'opacity-100');
+                toastEl.classList.add('translate-y-12', 'opacity-0');
+            }, 4500);
+
+            currentBuyerIndex = (currentBuyerIndex + 1) % recentBuyers.length;
+        }
+
+        setTimeout(() => {
+            showNextPurchaseToast();
+            setInterval(showNextPurchaseToast, 11000);
+        }, 3500);
+    </script>
+</body>
+</html>
