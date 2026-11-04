@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrettyLinks GitHub | Evoluindo no Amor</title>
+    <title>Encurtador de Links | Evoluindo no Amor</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -30,7 +30,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: #0f172a; border-radius: 8px; }
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 8px; }
@@ -40,17 +39,19 @@
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-brand-500 selection:text-white">
 
     <!-- Header -->
-    <header class="border-b border-slate-800/80 bg-slate-900/70 sticky top-0 z-30 backdrop-blur-md">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+    <header class="border-b border-slate-800/80 bg-slate-900/80 sticky top-0 z-30 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
             <div class="flex items-center space-x-3">
                 <div class="bg-gradient-to-br from-brand-500 to-brand-700 p-2.5 rounded-xl shadow-lg shadow-brand-600/30">
                     <i data-lucide="link-2" class="w-6 h-6 text-white"></i>
                 </div>
                 <div>
-                    <h1 class="font-bold text-lg sm:text-xl tracking-tight text-white flex items-center gap-2">
-                        PrettyLinks <span class="text-brand-500">GitHub</span>
+                    <h1 class="font-bold text-lg sm:text-xl tracking-tight text-white flex flex-wrap items-center gap-2">
+                        <span>Encurtador de Links</span>
+                        <span class="text-slate-600 font-normal">|</span>
+                        <span class="text-brand-400">Evoluindo no Amor</span>
                     </h1>
-                    <p class="text-xs text-slate-400">Painel Oficial • Evoluindo no Amor</p>
+                    <p class="text-xs text-slate-400">Gerenciador Oficial de Links & Redirecionamentos • Oferta R$ 47,00</p>
                 </div>
             </div>
 
@@ -67,7 +68,7 @@
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex-grow w-full grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex-grow w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         <!-- Coluna da Esquerda: Configurações + Criador/Editor de Links -->
         <div class="lg:col-span-7 space-y-6">
@@ -80,7 +81,7 @@
                         <h2 class="text-base font-bold text-white">1. Conexão com seu GitHub</h2>
                     </div>
                     <div class="flex items-center space-x-3">
-                        <button type="button" onclick="resetToDefaultRepo()" class="text-xs text-brand-400 hover:text-brand-300 underline" title="Corrige caso o navegador tenha salvado um nome antigo">
+                        <button type="button" onclick="resetToDefaultRepo()" class="text-xs text-brand-400 hover:text-brand-300 underline" title="Restaurar usuário e repositório padrão">
                             Restaurar Padrão
                         </button>
                         <button type="button" onclick="toggleConfigSection()" class="text-xs text-slate-400 hover:text-white underline">
@@ -120,15 +121,15 @@
                         </div>
                         <p class="text-[11px] text-emerald-400/90 mt-1.5 flex items-center gap-1">
                             <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
-                            Seu token fica salvo apenas na memória deste seu navegador (LocalStorage).
+                            Configurações e links ficam salvos de forma permanente no seu navegador (não somem ao recarregar).
                         </p>
                     </div>
 
                     <!-- Auto-Deploy do Painel -->
                     <div class="pt-3 border-t border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                         <div>
-                            <p class="text-xs font-semibold text-slate-200">Hospedar / Atualizar este Painel no GitHub:</p>
-                            <p class="text-[11px] text-slate-400">Envia este sistema atualizado direto para <code class="text-slate-300">/admin.html</code> no seu repositório.</p>
+                            <p class="text-xs font-semibold text-slate-200">Atualizar este Painel no seu GitHub:</p>
+                            <p class="text-[11px] text-slate-400">Salva esta versão atualizada direto em <code class="text-slate-300">/admin.html</code> no seu repositório.</p>
                         </div>
                         <button type="button" id="deploy-panel-btn" onclick="deployAdminPanelToGitHub()" class="shrink-0 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-semibold text-xs px-4 py-2.5 rounded-xl transition flex items-center justify-center gap-2">
                             <i data-lucide="cloud-upload" class="w-4 h-4"></i>
@@ -173,16 +174,16 @@
 
                     <!-- Aba para Cadastrar Nova Rede (Completa ou Abreviada) -->
                     <div id="add-network-tab" class="hidden mt-3.5 pt-3.5 border-t border-slate-800 space-y-3">
-                        <p class="text-[11px] text-slate-400">Adicione o nome completo ou abreviado (ex: Nome <strong class="text-slate-200">Instagram</strong> e Slug <strong class="text-slate-200">ig</strong> ou <strong class="text-slate-200">instagram</strong>):</p>
+                        <p class="text-[11px] text-slate-400">Adicione o nome completo ou abreviado (ex: Nome <strong class="text-slate-200">Instagram</strong> e Slug <strong class="text-slate-200">ig</strong> ou <strong class="text-slate-200">pint</strong>):</p>
                         <div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
                             <div class="sm:col-span-2">
                                 <input type="text" id="new-net-emoji" placeholder="Emoji (🔗)" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-2 text-xs text-white text-center focus:border-brand-500 outline-none">
                             </div>
                             <div class="sm:col-span-4">
-                                <input type="text" id="new-net-name" placeholder="Nome (ex: Insta / Kwai)" oninput="autoFillNewNetSlug()" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:border-brand-500 outline-none">
+                                <input type="text" id="new-net-name" placeholder="Nome (ex: Pinterest)" oninput="autoFillNewNetSlug()" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:border-brand-500 outline-none">
                             </div>
                             <div class="sm:col-span-3">
-                                <input type="text" id="new-net-slug" placeholder="Slug (ex: ig / kwai)" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-emerald-400 font-mono focus:border-brand-500 outline-none">
+                                <input type="text" id="new-net-slug" placeholder="Slug (ex: pint)" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-emerald-400 font-mono focus:border-brand-500 outline-none">
                             </div>
                             <div class="sm:col-span-3">
                                 <button type="button" onclick="addCustomNetwork()" class="w-full h-full bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-lg text-xs py-2 px-3 transition">
@@ -193,39 +194,17 @@
                     </div>
                 </div>
 
-                <!-- Seção: Seus Links Oficiais Kiwify (Checkout vs Página de Vendas) -->
+                <!-- Seção: Seus 5 Links Oficiais Kiwify (Clique para usar como Base) -->
                 <div class="mb-5 bg-slate-950/70 border border-slate-800/90 rounded-xl p-4">
-                    <label class="block text-xs font-medium text-slate-300 mb-2.5">
-                        Seus Links Oficiais Kiwify (Clique para usar como base):
-                    </label>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <!-- Opção 1: Checkout Direto -->
-                        <button type="button" id="base-btn-checkout" onclick="selectBaseUrl('https://pay.kiwify.com.br/ALu3sst', 'checkout')" 
-                            class="text-left p-3 rounded-xl border border-emerald-500/40 bg-emerald-500/10 hover:bg-emerald-500/15 transition group relative">
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
-                                    💳 Checkout Direto (R$ 37,90)
-                                </span>
-                                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-emerald-400"></i>
-                            </div>
-                            <div class="text-[11px] text-slate-400 font-mono truncate mt-1">
-                                https://pay.kiwify.com.br/ALu3sst
-                            </div>
-                        </button>
+                    <div class="flex items-center justify-between mb-3">
+                        <label class="block text-xs font-medium text-slate-300">
+                            Páginas Oficiais Kiwify — <span class="text-emerald-400 font-semibold">R$ 47,00</span> (Clique para selecionar como destino):
+                        </label>
+                        <span class="text-[11px] text-slate-400">5 links configurados</span>
+                    </div>
 
-                        <!-- Opção 2: Página de Vendas -->
-                        <button type="button" id="base-btn-sales" onclick="selectBaseUrl('https://kiwify.app/r3e8Jhf', 'sales')" 
-                            class="text-left p-3 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800/80 transition group relative">
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs font-bold text-sky-400 flex items-center gap-1.5">
-                                    📄 Página de Vendas
-                                </span>
-                                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-400 group-hover:text-sky-400"></i>
-                            </div>
-                            <div class="text-[11px] text-slate-400 font-mono truncate mt-1">
-                                https://kiwify.app/r3e8Jhf
-                            </div>
-                        </button>
+                    <div id="kiwify-base-cards" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                        <!-- Renderizado dinamicamente via JS com os 5 links oficiais -->
                     </div>
                 </div>
 
@@ -241,14 +220,19 @@
                             </span>
                             <input type="text" id="link-slug" value="tiktok" oninput="onSlugInput()" 
                                 class="w-full bg-transparent px-3.5 py-2.5 text-sm text-white font-mono outline-none" 
-                                placeholder="ex: tiktok, ig, yt">
+                                placeholder="ex: tiktok, ig, pint, yt">
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-xs font-medium text-slate-300 mb-1.5">
-                            Link de Destino Completo (Com seu rastreio <span class="text-emerald-400 font-mono">?src=</span>)
-                        </label>
+                        <div class="flex items-center justify-between mb-1.5">
+                            <label class="block text-xs font-medium text-slate-300">
+                                Link de Destino Completo (Com seu rastreio <span class="text-emerald-400 font-mono">?src=</span>)
+                            </label>
+                            <span id="selected-page-indicator" class="text-[11px] font-semibold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                                Base: Checkout (R$ 47,00)
+                            </span>
+                        </div>
                         <input type="url" id="link-target" value="https://pay.kiwify.com.br/ALu3sst?src=tiktok" oninput="updateLivePreview()" 
                             class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2.5 text-sm text-emerald-400 font-mono focus:border-brand-500 outline-none transition"
                             placeholder="https://pay.kiwify.com.br/ALu3sst?src=tiktok">
@@ -283,28 +267,64 @@
             </div>
         </div>
 
-        <!-- Coluna da Direita: Lista de Links Criados -->
-        <div class="lg:col-span-5 flex flex-col">
-            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-xl flex-grow flex flex-col">
-                <div class="flex items-center justify-between mb-3">
+        <!-- Coluna Lateral Direita (Fixa): Links Criados + Central de Links & Contatos para Copiar -->
+        <div class="lg:col-span-5 space-y-6 lg:sticky lg:top-24">
+            
+            <!-- Painel Lateral 1: Meus Links Encurtados (Fixos na Lateral) -->
+            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col">
+                <div class="flex items-center justify-between mb-2">
                     <h2 class="text-base font-bold text-white flex items-center gap-2">
-                        <i data-lucide="folder-git-2" class="w-5 h-5 text-brand-500"></i>
-                        <span>Meus Links Criados</span>
+                        <i data-lucide="bookmark-check" class="w-5 h-5 text-brand-500"></i>
+                        <span>Meus Links Criados (Fixos)</span>
                     </h2>
-                    <button type="button" id="sync-btn" onclick="loadExistingLinksFromGitHub()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl text-xs font-medium border border-slate-700 transition flex items-center gap-1.5">
+                    <button type="button" id="sync-btn" onclick="loadExistingLinksFromGitHub(false)" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl text-xs font-medium border border-slate-700 transition flex items-center gap-1.5" title="Buscar links existentes lá no GitHub sem apagar os atuais">
                         <i id="sync-icon" data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
                         <span>Sincronizar</span>
                     </button>
                 </div>
 
                 <p class="text-xs text-slate-400 mb-4">
-                    Abaixo ficam fixos os seus links ativos. Use o <strong class="text-slate-200">lápis</strong> para alterar o destino (Update) ou a <strong class="text-rose-400">lixeira</strong> para apagar o link e a pasta do seu GitHub.
+                    Seus links criados ficam salvos de forma permanente aqui na lateral mesmo ao recarregar a página.
                 </p>
 
-                <div id="links-list" class="space-y-3 overflow-y-auto max-h-[580px] pr-1 flex-grow">
+                <div id="links-list" class="space-y-2.5 overflow-y-auto max-h-[380px] pr-1">
                     <!-- Renderizado via JS -->
                 </div>
             </div>
+
+            <!-- Painel Lateral 2: Links Oficiais Kiwify & Contatos Rápidos para Copiar -->
+            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col">
+                <div class="flex items-center justify-between mb-3">
+                    <h2 class="text-base font-bold text-white flex items-center gap-2">
+                        <i data-lucide="clipboard-list" class="w-5 h-5 text-emerald-400"></i>
+                        <span>Links & Contatos Rápidos</span>
+                    </h2>
+                    <button type="button" onclick="toggleAddQuickItem()" class="text-xs text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-lg transition">
+                        <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                        <span>+ Contato/Link</span>
+                    </button>
+                </div>
+
+                <p class="text-xs text-slate-400 mb-3">
+                    Copie rapidamente seus links originais da Kiwify (R$ 47,00) ou seus contatos e e-mails do projeto:
+                </p>
+
+                <!-- Formulário para Adicionar Novo Contato/Link Rápido -->
+                <div id="add-quick-item-box" class="hidden mb-4 p-3.5 bg-slate-950 border border-slate-800 rounded-xl space-y-2.5">
+                    <input type="text" id="quick-item-title" placeholder="Título (ex: WhatsApp Suporte, E-mail Projeto, Insta)" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:border-emerald-500 outline-none">
+                    <input type="text" id="quick-item-value" placeholder="Link, Telefone ou E-mail para copiar" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-xs text-emerald-400 font-mono focus:border-emerald-500 outline-none">
+                    <div class="flex justify-end gap-2">
+                        <button type="button" onclick="toggleAddQuickItem()" class="px-3 py-1.5 bg-slate-800 text-slate-300 rounded-lg text-xs">Cancelar</button>
+                        <button type="button" onclick="addQuickContactItem()" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg text-xs">Salvar na Lateral</button>
+                    </div>
+                </div>
+
+                <!-- Lista de Links Oficiais Kiwify + Contatos Salvos -->
+                <div id="quick-copy-list" class="space-y-2 overflow-y-auto max-h-[360px] pr-1">
+                    <!-- Renderizado via JS -->
+                </div>
+            </div>
+
         </div>
     </main>
 
@@ -315,13 +335,13 @@
                 <div class="p-2.5 bg-rose-500/10 rounded-xl border border-rose-500/20">
                     <i data-lucide="trash-2" class="w-6 h-6"></i>
                 </div>
-                <h3 class="text-lg font-bold text-white">Apagar Link do GitHub?</h3>
+                <h3 class="text-lg font-bold text-white">Apagar Link e Pasta do GitHub?</h3>
             </div>
             <p class="text-sm text-slate-300 mb-2">
                 Você está prestes a excluir o link curto <strong id="delete-modal-slug" class="text-brand-400 font-mono">/tiktok</strong>.
             </p>
             <p class="text-xs text-slate-400 mb-6">
-                Isso removerá o arquivo <code class="text-slate-300">index.html</code> e apagará a pasta correspondente diretamente do seu repositório no GitHub.
+                Isso removerá o arquivo <code class="text-slate-300">index.html</code> lá do seu repositório no GitHub e também o removerá da sua lista lateral.
             </p>
             <div class="flex items-center justify-end space-x-3">
                 <button type="button" onclick="closeDeleteModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition">
@@ -329,7 +349,7 @@
                 </button>
                 <button type="button" id="confirm-delete-btn" onclick="confirmDeleteLink()" class="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-semibold transition flex items-center gap-1.5">
                     <i data-lucide="trash-2" class="w-4 h-4"></i>
-                    <span>Sim, Apagar Pasta</span>
+                    <span>Sim, Apagar Agora</span>
                 </button>
             </div>
         </div>
@@ -341,22 +361,22 @@
             <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                 <h3 class="text-base font-bold text-white flex items-center gap-2">
                     <i data-lucide="help-circle" class="w-5 h-5 text-brand-500"></i>
-                    Como Garantir que os Links Funcionem sem Erro 404
+                    Guia Rápido do Sistema
                 </h3>
                 <button type="button" onclick="toggleHelpModal()" class="text-slate-400 hover:text-white text-lg font-bold">×</button>
             </div>
             <div class="space-y-3 text-xs text-slate-300 leading-relaxed">
                 <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                    <strong class="text-white block mb-1">1. Nome do Usuário e Repositório:</strong>
-                    Para que o link curto fique <code class="text-emerald-400">https://evoluindonoamor.github.io/tiktok</code>, o seu usuário no GitHub deve ser <code class="text-white">evoluindonoamor</code> e o repositório deve se chamar exatamente <code class="text-white">evoluindonoamor.github.io</code>.
+                    <strong class="text-white block mb-1">1. Links Fixos na Lateral:</strong>
+                    Todos os links que você cria ficam gravados na memória permanente do painel e sincronizados com o seu GitHub. Mesmo se você atualizar a página (F5) ou fechar o navegador, eles continuarão salvos na coluna da direita.
                 </div>
                 <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                    <strong class="text-white block mb-1">2. Tempo de Ativação do GitHub Pages (30 a 60 segundos):</strong>
-                    Quando você cria um link novo (ex: <code class="text-brand-400">/tiktok</code>), o GitHub leva cerca de <strong>30 a 60 segundos</strong> para publicar a pasta na internet. Se clicar no primeiro segundo e der 404, aguarde meio minuto e atualize a página (F5).
+                    <strong class="text-white block mb-1">2. Tempo de Propagação do GitHub (30 a 60 segundos):</strong>
+                    Ao criar um link novo, aguarde de 30 a 60 segundos antes de testar para que o GitHub Pages publique a pasta mundialmente.
                 </div>
                 <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                    <strong class="text-white block mb-1">3. Como gerar seu Token (`ghp_...`):</strong>
-                    No GitHub, vá em <strong>Settings > Developer settings > Personal access tokens > Tokens (classic)</strong>. Gere um token com a caixa <strong><code class="text-emerald-400">repo</code></strong> marcada e cole no Passo 1 deste painel.
+                    <strong class="text-white block mb-1">3. Atualizando o Painel no GitHub:</strong>
+                    Sempre que quiser salvar uma atualização deste painel lá no seu repositório, basta clicar no botão verde <strong>"Importar Painel p/ GitHub"</strong> no Passo 1.
                 </div>
             </div>
             <div class="flex justify-end pt-2">
@@ -374,57 +394,127 @@
     </div>
 
     <script>
-        // Inicializar ícones
         lucide.createIcons();
 
-        // Chaves do LocalStorage (Nova versão v2 para limpar conflitos antigos de nomes de repositório)
+        // Chaves de Armazenamento Local (Lê também chaves anteriores para nunca perder nada já salvo)
         const STORAGE_KEYS = {
-            OWNER: 'pl_v2_gh_owner',
-            REPO: 'pl_v2_gh_repo',
-            TOKEN: 'pl_gh_token', // Mantém o token já salvo anteriormente
-            HISTORY: 'pl_v2_links_history',
-            NETWORKS: 'pl_v2_custom_networks',
-            BASE_URL: 'pl_v2_base_url'
+            OWNER: 'pl_v3_gh_owner',
+            REPO: 'pl_v3_gh_repo',
+            TOKEN: 'pl_gh_token',
+            HISTORY: 'pl_v3_links_history',
+            NETWORKS: 'pl_v3_custom_networks',
+            BASE_URL: 'pl_v3_base_url',
+            QUICK_CONTACTS: 'pl_v3_quick_contacts'
         };
+
+        // As 5 Páginas Oficiais da Kiwify (Valor R$ 47,00) conforme imagem enviada
+        const KIWIFY_PAGES = [
+            {
+                id: 'checkout',
+                name: 'Checkout (R$ 47,00)',
+                shortBadge: 'Checkout R$ 47',
+                url: 'https://pay.kiwify.com.br/ALu3sst',
+                type: 'Checkout',
+                status: 'Ativo',
+                color: 'emerald'
+            },
+            {
+                id: 'pv_github_svsl',
+                name: 'PV github S. VSL',
+                shortBadge: 'PV GitHub S. VSL',
+                url: 'https://kiwify.app/sUolvqJ',
+                type: 'Página',
+                status: 'Ativo',
+                color: 'sky'
+            },
+            {
+                id: 'pv_github_cvsl',
+                name: 'PV github C. VSL',
+                shortBadge: 'PV GitHub C. VSL',
+                url: 'https://kiwify.app/VlSVLHT',
+                type: 'Página',
+                status: 'Ativo',
+                color: 'indigo'
+            },
+            {
+                id: 'pv_gsites_svsl',
+                name: 'PV G. SITES S. VSL',
+                shortBadge: 'PV G. Sites S. VSL',
+                url: 'https://kiwify.app/haLG40g',
+                type: 'Página',
+                status: 'Ativo',
+                color: 'purple'
+            },
+            {
+                id: 'pv_canva_svsl',
+                name: 'PV CANVA S. VSL',
+                shortBadge: 'PV Canva S. VSL',
+                url: 'https://kiwify.app/r3e8Jhf',
+                type: 'Página',
+                status: 'Salvo',
+                color: 'amber'
+            }
+        ];
 
         // Redes Sociais Padrão
         const DEFAULT_NETWORKS = [
-            { emoji: '🎵', name: 'TikTok', slug: 'tiktok' },
-            { emoji: '📸', name: 'Instagram', slug: 'instagram' },
-            { emoji: '▶️', name: 'YouTube', slug: 'youtube' },
-            { emoji: '📌', name: 'Pinterest', slug: 'pinterest' },
-            { emoji: '💬', name: 'WhatsApp', slug: 'whatsapp' }
+            { emoji: '🎵', name: 'TikTok', slug: 'tkt' },
+            { emoji: '📸', name: 'Instagram', slug: 'ig' },
+            { emoji: '▶️', name: 'YouTube', slug: 'yt' },
+            { emoji: '📌', name: 'Pinterest', slug: 'pint' },
+            { emoji: '🧵', name: 'Threads', slug: 'the' },
+            { emoji: '💬', name: 'WhatsApp', slug: 'zap' }
         ];
 
-        // Estado atual
-        let currentBaseUrl = 'https://pay.kiwify.com.br/ALu3sst';
+        // Contatos e Links Úteis Padrão na Lateral
+        const DEFAULT_QUICK_CONTACTS = [
+            { id: 'c1', title: '📧 E-mail Oficial do Projeto', value: 'projetocasamentofeliz7@gmail.com' },
+            { id: 'c2', title: '🌐 Domínio Principal GitHub', value: 'https://evoluindonoamor.github.io' },
+            { id: 'c3', title: '⚙️ Link Direto deste Painel', value: 'https://evoluindonoamor.github.io/admin.html' }
+        ];
+
+        let currentBaseUrl = KIWIFY_PAGES[0].url;
         let pendingDeleteSlug = null;
 
-        // Ao carregar a página
+        // Inicialização ao abrir ou recarregar a página
         window.addEventListener('DOMContentLoaded', () => {
-            // Recupera configurações ou usa o padrão oficial evoluindonoamor
+            migratePreviousStorageIfNeeded();
+
             const savedOwner = localStorage.getItem(STORAGE_KEYS.OWNER) || 'evoluindonoamor';
             const savedRepo = localStorage.getItem(STORAGE_KEYS.REPO) || 'evoluindonoamor.github.io';
-            const savedToken = localStorage.getItem(STORAGE_KEYS.TOKEN) || localStorage.getItem('pl_gh_token') || '';
-            const savedBase = localStorage.getItem(STORAGE_KEYS.BASE_URL);
+            const savedToken = localStorage.getItem(STORAGE_KEYS.TOKEN) || '';
+            const savedBase = localStorage.getItem(STORAGE_KEYS.BASE_URL) || KIWIFY_PAGES[0].url;
 
             document.getElementById('gh-owner').value = savedOwner;
             document.getElementById('gh-repo').value = savedRepo;
             if (savedToken) document.getElementById('gh-token').value = savedToken;
 
-            if (savedBase) {
-                currentBaseUrl = savedBase;
-                highlightBaseButton(savedBase.includes('pay.kiwify') ? 'checkout' : 'sales');
-            }
+            currentBaseUrl = savedBase;
 
+            renderKiwifyBaseCards();
             renderNetworksButtons();
             onConfigChange();
+            updateTargetWithSrc(document.getElementById('link-slug').value.trim() || 'tkt');
             renderSavedHistory();
+            renderQuickCopyList();
 
+            // Sincroniza de forma aditiva (NUNCA apaga links criados localmente ao recarregar a página)
             if (savedToken) {
                 loadExistingLinksFromGitHub(true);
             }
         });
+
+        // Garante que qualquer histórico ou rede salva na versão anterior continue disponível
+        function migratePreviousStorageIfNeeded() {
+            if (!localStorage.getItem(STORAGE_KEYS.HISTORY)) {
+                const oldHistory = localStorage.getItem('pl_v2_links_history') || localStorage.getItem('pl_links_history');
+                if (oldHistory) localStorage.setItem(STORAGE_KEYS.HISTORY, oldHistory);
+            }
+            if (!localStorage.getItem(STORAGE_KEYS.NETWORKS)) {
+                const oldNets = localStorage.getItem('pl_v2_custom_networks') || localStorage.getItem('pl_custom_networks');
+                if (oldNets) localStorage.setItem(STORAGE_KEYS.NETWORKS, oldNets);
+            }
+        }
 
         /* ==========================================
            1. GERENCIAMENTO DE CONFIGURAÇÃO GITHUB
@@ -458,6 +548,7 @@
             document.getElementById('gh-owner').value = 'evoluindonoamor';
             document.getElementById('gh-repo').value = 'evoluindonoamor.github.io';
             onConfigChange();
+            renderSavedHistory();
             showToast('Padrão evoluindonoamor.github.io restaurado!');
         }
 
@@ -490,7 +581,83 @@
         }
 
         /* ==========================================
-           2. ATALHOS DE REDES SOCIAIS (COM EXCLUSÃO)
+           2. SELETOR DOS 5 LINKS OFICIAIS DA KIWIFY
+           ========================================== */
+        function renderKiwifyBaseCards() {
+            const container = document.getElementById('kiwify-base-cards');
+            const selectedPage = KIWIFY_PAGES.find(p => p.url === currentBaseUrl) || KIWIFY_PAGES[0];
+
+            // Atualiza indicador textual acima do input de destino
+            const indicator = document.getElementById('selected-page-indicator');
+            if (indicator) {
+                indicator.innerText = `Base: ${selectedPage.name}`;
+            }
+
+            container.innerHTML = KIWIFY_PAGES.map((page, index) => {
+                const isSelected = page.url === currentBaseUrl;
+                const spanFull = index === 0 ? 'sm:col-span-2' : '';
+                const borderClass = isSelected
+                    ? 'border-brand-500 bg-brand-500/15 shadow-md shadow-brand-500/10'
+                    : 'border-slate-800 bg-slate-900/70 hover:bg-slate-800/80';
+
+                const badgeColor = page.type === 'Checkout'
+                    ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30'
+                    : 'bg-sky-500/15 text-sky-400 border-sky-500/30';
+
+                return `
+                    <div class="${spanFull} rounded-xl border ${borderClass} p-3 transition flex items-center justify-between gap-2">
+                        <button type="button" onclick="selectBaseUrl('${page.url}')" class="text-left flex-grow overflow-hidden">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold text-white truncate">${page.name}</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded-md border font-semibold ${badgeColor}">
+                                    ${page.type === 'Checkout' ? '💳 R$ 47,00' : '📄 Página'}
+                                </span>
+                                ${isSelected ? '<span class="text-[10px] font-bold text-brand-400">● Selecionado</span>' : ''}
+                            </div>
+                            <div class="text-[11px] text-slate-400 font-mono truncate mt-1">
+                                ${page.url}
+                            </div>
+                        </button>
+                        <div class="flex items-center gap-1 shrink-0">
+                            <button type="button" onclick="copyToClipboard('${page.url}')" class="p-2 bg-slate-950 hover:bg-slate-800 text-slate-300 rounded-lg border border-slate-800 transition" title="Copiar link puro da Kiwify">
+                                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            </button>
+                            <a href="${page.url}" target="_blank" class="p-2 bg-slate-950 hover:bg-slate-800 text-slate-300 rounded-lg border border-slate-800 transition" title="Abrir página em nova aba">
+                                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+        }
+
+        function selectBaseUrl(baseUrl) {
+            currentBaseUrl = baseUrl;
+            localStorage.setItem(STORAGE_KEYS.BASE_URL, baseUrl);
+            renderKiwifyBaseCards();
+
+            const slug = document.getElementById('link-slug').value.trim() || 'tkt';
+            updateTargetWithSrc(slug);
+            updateLivePreview();
+        }
+
+        function getPageInfoByTargetUrl(targetUrl) {
+            if (!targetUrl) return { label: 'Link Externo', classes: 'bg-slate-800 text-slate-300 border-slate-700' };
+            for (const page of KIWIFY_PAGES) {
+                if (targetUrl.startsWith(page.url)) {
+                    if (page.id === 'checkout') {
+                        return { label: 'Checkout R$ 47', classes: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' };
+                    }
+                    return { label: page.shortBadge, classes: 'bg-sky-500/10 text-sky-400 border-sky-500/20' };
+                }
+            }
+            return { label: 'Personalizado', classes: 'bg-slate-800 text-slate-300 border-slate-700' };
+        }
+
+        /* ==========================================
+           3. ATALHOS DE REDES SOCIAIS (COM EXCLUSÃO)
            ========================================== */
         function getNetworksList() {
             const saved = localStorage.getItem(STORAGE_KEYS.NETWORKS);
@@ -522,7 +689,7 @@
                             <span>${net.name}</span>
                             <span class="text-[10px] font-mono text-slate-400">/${net.slug}</span>
                         </button>
-                        <button type="button" onclick="removeCustomNetwork('${net.slug}')" class="px-2 py-1.5 text-slate-500 hover:bg-rose-500/20 hover:text-rose-400 text-xs font-bold border-l border-slate-800/80 transition" title="Apagar este botão de rede social">
+                        <button type="button" onclick="removeCustomNetwork('${net.slug}')" class="px-2 py-1.5 text-slate-500 hover:bg-rose-500/20 hover:text-rose-400 text-xs font-bold border-l border-slate-800/80 transition" title="Apagar este botão">
                             ×
                         </button>
                     </div>
@@ -558,7 +725,7 @@
             const slug = rawSlug.toLowerCase().replace(/[^a-z0-9-_]/g, '');
 
             if (!name || !slug) {
-                showToast('Preencha o nome ou a sigla da rede social!');
+                showToast('Preencha o nome e a sigla da rede social!');
                 return;
             }
 
@@ -574,7 +741,7 @@
             document.getElementById('add-network-tab').classList.add('hidden');
 
             applyNetworkShortcut(slug);
-            showToast(`Rede "${name}" (/${slug}) adicionada!`);
+            showToast(`Rede "${name}" (/${slug}) salva!`);
         }
 
         function removeCustomNetwork(slug) {
@@ -588,33 +755,7 @@
         function restoreDefaultNetworks() {
             localStorage.setItem(STORAGE_KEYS.NETWORKS, JSON.stringify(DEFAULT_NETWORKS));
             renderNetworksButtons();
-            showToast('Redes sociais padrão restauradas!');
-        }
-
-        /* ==========================================
-           3. SELETOR DE BASE KIWIFY E PREVIEW
-           ========================================== */
-        function selectBaseUrl(baseUrl, type) {
-            currentBaseUrl = baseUrl;
-            localStorage.setItem(STORAGE_KEYS.BASE_URL, baseUrl);
-            highlightBaseButton(type);
-
-            const slug = document.getElementById('link-slug').value.trim() || 'tiktok';
-            updateTargetWithSrc(slug);
-            updateLivePreview();
-        }
-
-        function highlightBaseButton(type) {
-            const btnCheckout = document.getElementById('base-btn-checkout');
-            const btnSales = document.getElementById('base-btn-sales');
-
-            if (type === 'checkout') {
-                btnCheckout.className = "text-left p-3 rounded-xl border border-emerald-500/50 bg-emerald-500/10 hover:bg-emerald-500/15 transition group relative";
-                btnSales.className = "text-left p-3 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800/80 transition group relative";
-            } else {
-                btnSales.className = "text-left p-3 rounded-xl border border-sky-500/50 bg-sky-500/10 hover:bg-sky-500/15 transition group relative";
-                btnCheckout.className = "text-left p-3 rounded-xl border border-slate-800 bg-slate-900/60 hover:bg-slate-800/80 transition group relative";
-            }
+            showToast('Atalhos padrão restaurados!');
         }
 
         function onSlugInput() {
@@ -631,15 +772,8 @@
 
         function updateTargetWithSrc(slug) {
             const targetInput = document.getElementById('link-target');
-            const currentVal = targetInput.value.trim();
-
-            try {
-                // Se já tiver uma URL válida, mantém a base atual ou usa a selecionada
-                const baseToUse = currentBaseUrl || 'https://pay.kiwify.com.br/ALu3sst';
-                targetInput.value = `${baseToUse}?src=${slug}`;
-            } catch (e) {
-                targetInput.value = `${currentBaseUrl}?src=${slug}`;
-            }
+            const baseToUse = currentBaseUrl || KIWIFY_PAGES[0].url;
+            targetInput.value = `${baseToUse}?src=${slug}`;
         }
 
         function updateLivePreview() {
@@ -685,7 +819,6 @@
             btn.disabled = true;
             btnText.innerText = 'Publicando no GitHub... aguarde';
 
-            // HTML de redirecionamento ultra-rápido e compatível com todos os navegadores/redes sociais
             const redirectHtml = `<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -707,7 +840,6 @@
             const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${slug}/index.html`;
 
             try {
-                // 1. Verifica se o arquivo já existe para pegar o SHA (Permite Update sem erro!)
                 let existingSha = null;
                 const checkRes = await fetch(apiUrl, {
                     headers: {
@@ -721,7 +853,6 @@
                     existingSha = fileData.sha;
                 }
 
-                // 2. Cria ou Atualiza o arquivo /{slug}/index.html
                 const payload = {
                     message: existingSha ? `Atualizando link curto /${slug} -> ${targetUrl}` : `Criando link curto /${slug} -> ${targetUrl}`,
                     content: contentBase64
@@ -748,10 +879,10 @@
                     showStatus('success', `
                         <div class="space-y-2.5">
                             <div class="font-bold text-emerald-300 flex items-center gap-1.5 text-base">
-                                ✅ ${existingSha ? 'Link Atualizado com Sucesso!' : 'Link Criado com Sucesso!'}
+                                ✅ ${existingSha ? 'Link Atualizado com Sucesso!' : 'Link Criado e Fixado na Lateral!'}
                             </div>
                             <p class="text-xs text-emerald-200/80">
-                                Seu link já foi enviado para o GitHub Pages (leva cerca de 30 a 60 segundos para propagar mundialmente):
+                                Seu link já está salvo na coluna lateral e foi enviado ao GitHub Pages (aguarde 30 a 60s para propagar):
                             </p>
                             <div class="bg-slate-950/90 border border-emerald-500/30 rounded-xl p-2.5 flex items-center justify-between gap-2">
                                 <a href="${shortUrl}" target="_blank" class="text-emerald-400 font-mono text-xs sm:text-sm underline truncate font-semibold">
@@ -763,10 +894,10 @@
                             </div>
                         </div>
                     `);
-                    showToast(existingSha ? `Link /${slug} atualizado!` : `Link /${slug} publicado!`);
+                    showToast(existingSha ? `Link /${slug} atualizado!` : `Link /${slug} publicado e fixado!`);
                 } else {
                     const errData = await putRes.json().catch(() => ({}));
-                    showStatus('error', `❌ <strong>Erro do GitHub (${putRes.status}):</strong> ${errData.message || 'Verifique se o repositório "' + repo + '" existe e se o seu Token tem a permissão "repo".'}`);
+                    showStatus('error', `❌ <strong>Erro do GitHub (${putRes.status}):</strong> ${errData.message || 'Verifique seu repositório e Token.'}`);
                 }
             } catch (error) {
                 showStatus('error', `❌ <strong>Erro de conexão:</strong> ${error.message}`);
@@ -777,7 +908,7 @@
         }
 
         /* ==========================================
-           5. HISTÓRICO, EDIÇÃO (UPDATE) E EXCLUSÃO
+           5. HISTÓRICO LATERAL PERSISTENTE (NÃO APAGA AO RECARREGAR)
            ========================================== */
         function saveToHistory(slug, shortUrl, targetUrl) {
             let history = JSON.parse(localStorage.getItem(STORAGE_KEYS.HISTORY) || '[]');
@@ -802,10 +933,10 @@
 
             if (history.length === 0) {
                 listEl.innerHTML = `
-                    <div class="border border-dashed border-slate-800 rounded-2xl p-8 text-center my-auto">
-                        <i data-lucide="link" class="w-8 h-8 text-slate-600 mx-auto mb-2"></i>
-                        <p class="text-sm font-semibold text-slate-400">Nenhum link criado ainda.</p>
-                        <p class="text-xs text-slate-500 mt-1">Escolha uma rede social ao lado e clique em Publicar, ou clique em "Sincronizar".</p>
+                    <div class="border border-dashed border-slate-800 rounded-2xl p-6 text-center">
+                        <i data-lucide="link" class="w-7 h-7 text-slate-600 mx-auto mb-2"></i>
+                        <p class="text-xs font-semibold text-slate-400">Nenhum link curto salvo ainda.</p>
+                        <p class="text-[11px] text-slate-500 mt-1">Crie um link ao lado ou clique em "Sincronizar" para buscar os do GitHub.</p>
                     </div>
                 `;
                 lucide.createIcons();
@@ -814,40 +945,39 @@
 
             listEl.innerHTML = history.map(item => {
                 const liveShortUrl = `https://${domain}/${item.slug}`;
-                const isCheckout = item.targetUrl && item.targetUrl.includes('pay.kiwify');
-                const isSalesPage = item.targetUrl && item.targetUrl.includes('kiwify.app');
-                const badgeHtml = isCheckout 
-                    ? `<span class="text-[10px] px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Checkout</span>`
-                    : (isSalesPage ? `<span class="text-[10px] px-2 py-0.5 rounded-md bg-sky-500/10 text-sky-400 border border-sky-500/20">Pág. Vendas</span>` : '');
+                const pageBadge = getPageInfoByTargetUrl(item.targetUrl);
 
                 return `
-                    <div class="bg-slate-950 border border-slate-800/90 hover:border-slate-700 rounded-xl p-3.5 transition group">
+                    <div class="bg-slate-950 border border-slate-800/90 hover:border-slate-700 rounded-xl p-3 transition">
                         <div class="flex items-start justify-between gap-2">
                             <div class="overflow-hidden">
                                 <div class="flex items-center gap-2">
                                     <span class="text-brand-400 font-mono text-sm font-bold">/${item.slug}</span>
-                                    ${badgeHtml}
+                                    <span class="text-[10px] px-2 py-0.5 rounded-md border font-medium ${pageBadge.classes}">
+                                        ${pageBadge.label}
+                                    </span>
                                 </div>
-                                <a href="${liveShortUrl}" target="_blank" class="block text-xs font-mono text-slate-300 hover:text-white underline truncate mt-0.5">
+                                <a href="${liveShortUrl}" target="_blank" class="block text-xs font-mono text-slate-200 hover:text-white underline truncate mt-1">
                                     ${liveShortUrl}
                                 </a>
-                                <div class="text-[11px] text-slate-500 font-mono truncate mt-1" title="${item.targetUrl}">
+                                <div class="text-[11px] text-slate-500 font-mono truncate mt-0.5" title="${item.targetUrl}">
                                     ↳ ${item.targetUrl}
                                 </div>
                             </div>
 
-                            <!-- Botões de Ação: Copiar, Abrir, Editar (Update) e Apagar -->
+                            <!-- Botões de Ação: Copiar, Abrir, Editar e Apagar -->
                             <div class="flex items-center gap-1 shrink-0">
-                                <button type="button" onclick="copyToClipboard('${liveShortUrl}')" class="p-2 bg-slate-900 hover:bg-slate-800 text-slate-200 rounded-lg border border-slate-800 transition" title="Copiar Link Curto">
+                                <button type="button" onclick="copyToClipboard('${liveShortUrl}')" class="px-2.5 py-1.5 bg-brand-600/20 hover:bg-brand-600 text-brand-300 hover:text-white rounded-lg border border-brand-500/30 text-xs font-semibold transition flex items-center gap-1" title="Copiar Link Encurtado">
                                     <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                                    <span>Copiar</span>
                                 </button>
-                                <a href="${liveShortUrl}" target="_blank" class="p-2 bg-slate-900 hover:bg-slate-800 text-slate-200 rounded-lg border border-slate-800 transition" title="Testar Link em Nova Aba">
+                                <a href="${liveShortUrl}" target="_blank" class="p-1.5 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-lg border border-slate-800 transition" title="Testar Link">
                                     <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
                                 </a>
-                                <button type="button" onclick="loadLinkForEdit('${item.slug}', '${item.targetUrl.replace(/'/g, "\\'")}')" class="p-2 bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 rounded-lg border border-amber-500/20 transition" title="Editar / Atualizar Destino deste Link">
+                                <button type="button" onclick="loadLinkForEdit('${item.slug}', '${(item.targetUrl || '').replace(/'/g, "\\'")}')" class="p-1.5 bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 rounded-lg border border-amber-500/20 transition" title="Editar Destino">
                                     <i data-lucide="pencil" class="w-3.5 h-3.5"></i>
                                 </button>
-                                <button type="button" onclick="openDeleteModal('${item.slug}')" class="p-2 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 rounded-lg border border-rose-500/20 transition" title="Apagar Link e Pasta do GitHub">
+                                <button type="button" onclick="openDeleteModal('${item.slug}')" class="p-1.5 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 rounded-lg border border-rose-500/20 transition" title="Apagar Link e Pasta">
                                     <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
                                 </button>
                             </div>
@@ -859,17 +989,14 @@
             lucide.createIcons();
         }
 
-        // Carrega um link existente no formulário para fazer Update
         function loadLinkForEdit(slug, targetUrl) {
             document.getElementById('link-slug').value = slug;
             if (targetUrl && targetUrl.startsWith('http')) {
                 document.getElementById('link-target').value = targetUrl;
-                if (targetUrl.includes('pay.kiwify.com.br')) {
-                    currentBaseUrl = 'https://pay.kiwify.com.br/ALu3sst';
-                    highlightBaseButton('checkout');
-                } else if (targetUrl.includes('kiwify.app')) {
-                    currentBaseUrl = 'https://kiwify.app/r3e8Jhf';
-                    highlightBaseButton('sales');
+                const matchedPage = KIWIFY_PAGES.find(p => targetUrl.startsWith(p.url));
+                if (matchedPage) {
+                    currentBaseUrl = matchedPage.url;
+                    renderKiwifyBaseCards();
                 }
             } else {
                 updateTargetWithSrc(slug);
@@ -879,7 +1006,7 @@
             document.getElementById('submit-btn-text').innerText = `Atualizar Link /${slug} no GitHub`;
             renderNetworksButtons();
             updateLivePreview();
-            showToast(`Modo Edição: altere o destino de /${slug} e clique em Atualizar!`);
+            showToast(`Editando /${slug}: escolha a nova página e clique em Atualizar!`);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -888,7 +1015,6 @@
             document.getElementById('submit-btn-text').innerText = 'Criar e Publicar Link no GitHub';
         }
 
-        // Modal de Exclusão (Sem usar confirm() nativo)
         function openDeleteModal(slug) {
             pendingDeleteSlug = slug;
             document.getElementById('delete-modal-slug').innerText = `/${slug}`;
@@ -909,7 +1035,7 @@
 
             const btn = document.getElementById('confirm-delete-btn');
             btn.disabled = true;
-            btn.innerHTML = `<span>Apagando do GitHub...</span>`;
+            btn.innerHTML = `<span>Apagando...</span>`;
 
             const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${slug}/index.html`;
 
@@ -939,25 +1065,24 @@
                     }
                 }
 
-                // Remove do histórico local
                 let history = JSON.parse(localStorage.getItem(STORAGE_KEYS.HISTORY) || '[]');
                 history = history.filter(item => item.slug !== slug);
                 localStorage.setItem(STORAGE_KEYS.HISTORY, JSON.stringify(history));
 
                 renderSavedHistory();
-                showToast(`Pasta /${slug} apagada do GitHub com sucesso!`);
+                showToast(`Link /${slug} apagado com sucesso!`);
             } catch (e) {
                 showToast('Erro ao comunicar com o GitHub.');
             } finally {
                 btn.disabled = false;
-                btn.innerHTML = `<i data-lucide="trash-2" class="w-4 h-4"></i><span>Sim, Apagar Pasta</span>`;
+                btn.innerHTML = `<i data-lucide="trash-2" class="w-4 h-4"></i><span>Sim, Apagar Agora</span>`;
                 lucide.createIcons();
                 closeDeleteModal();
             }
         }
 
         /* ==========================================
-           6. SINCRONIZAR PASTAS E DESTINOS DO GITHUB
+           6. SINCRONIZAÇÃO SEGURA (SEM APAGAR LINKS LOCAIS)
            ========================================== */
         async function loadExistingLinksFromGitHub(silent = false) {
             const owner = document.getElementById('gh-owner').value.trim();
@@ -973,7 +1098,7 @@
             if (syncIcon) syncIcon.classList.add('animate-spin');
 
             try {
-                const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents`, {
+                const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents?t=${Date.now()}`, {
                     headers: {
                         'Authorization': `token ${token}`,
                         'Accept': 'application/vnd.github.v3+json'
@@ -986,19 +1111,15 @@
                     const domain = getComputedBaseDomain(owner, repo);
                     let history = JSON.parse(localStorage.getItem(STORAGE_KEYS.HISTORY) || '[]');
 
-                    // Remove do histórico links que já não existem mais no GitHub
-                    const activeSlugs = dirs.map(d => d.name);
-                    history = history.filter(h => activeSlugs.includes(h.slug));
-
-                    // Busca o destino real de cada pasta no GitHub
+                    // Adiciona ou atualiza pastas encontradas no GitHub SEM apagar as recém-criadas localmente
                     for (const dir of dirs) {
                         const shortUrl = `https://${domain}/${dir.name}`;
                         const existingItem = history.find(h => h.slug === dir.name);
 
-                        if (!existingItem || existingItem.targetUrl === 'Ativo no GitHub') {
-                            let extractedTarget = `https://pay.kiwify.com.br/ALu3sst?src=${dir.name}`;
+                        if (!existingItem) {
+                            let extractedTarget = `${KIWIFY_PAGES[0].url}?src=${dir.name}`;
                             try {
-                                const fileRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${dir.name}/index.html`, {
+                                const fileRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${dir.name}/index.html?t=${Date.now()}`, {
                                     headers: { 'Authorization': `token ${token}` }
                                 });
                                 if (fileRes.ok) {
@@ -1009,25 +1130,20 @@
                                 }
                             } catch (err) {}
 
-                            if (existingItem) {
-                                existingItem.targetUrl = extractedTarget;
-                                existingItem.shortUrl = shortUrl;
-                            } else {
-                                history.push({
-                                    slug: dir.name,
-                                    shortUrl,
-                                    targetUrl: extractedTarget,
-                                    updatedAt: 'Sincronizado'
-                                });
-                            }
+                            history.push({
+                                slug: dir.name,
+                                shortUrl,
+                                targetUrl: extractedTarget,
+                                updatedAt: 'Sincronizado'
+                            });
                         }
                     }
 
                     localStorage.setItem(STORAGE_KEYS.HISTORY, JSON.stringify(history));
                     renderSavedHistory();
-                    if (!silent) showToast('Links sincronizados com o GitHub!');
+                    if (!silent) showToast('Links sincronizados e mantidos na lateral!');
                 } else if (!silent) {
-                    showToast('Não foi possível ler o repositório. Verifique o nome e o Token.');
+                    showToast('Não foi possível ler o repositório. Verifique o Token.');
                 }
             } catch (e) {
                 if (!silent) showToast('Erro de conexão ao sincronizar.');
@@ -1037,7 +1153,105 @@
         }
 
         /* ==========================================
-           7. AUTO-PUBLICAR ESTE PAINEL NO GITHUB
+           7. CENTRAL LATERAL DE LINKS KIWIFY & CONTATOS RÁPIDOS
+           ========================================== */
+        function getQuickContactsList() {
+            const saved = localStorage.getItem(STORAGE_KEYS.QUICK_CONTACTS);
+            if (saved) {
+                try { return JSON.parse(saved); } catch (e) {}
+            }
+            return DEFAULT_QUICK_CONTACTS;
+        }
+
+        function renderQuickCopyList() {
+            const container = document.getElementById('quick-copy-list');
+            const contacts = getQuickContactsList();
+
+            const kiwifyItemsHtml = KIWIFY_PAGES.map(page => `
+                <div class="bg-slate-950 border border-slate-800/90 rounded-xl p-2.5 flex items-center justify-between gap-2">
+                    <div class="overflow-hidden">
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-xs font-bold text-white">${page.name}</span>
+                            <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                                ${page.type === 'Checkout' ? 'R$ 47,00' : 'Kiwify'}
+                            </span>
+                        </div>
+                        <div class="text-[11px] text-slate-400 font-mono truncate mt-0.5">${page.url}</div>
+                    </div>
+                    <button type="button" onclick="copyToClipboard('${page.url}')" class="shrink-0 px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-semibold border border-slate-700 transition flex items-center gap-1">
+                        <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                        <span>Copiar</span>
+                    </button>
+                </div>
+            `).join('');
+
+            const contactsHtml = contacts.map(item => `
+                <div class="bg-slate-950/70 border border-slate-800/70 rounded-xl p-2.5 flex items-center justify-between gap-2">
+                    <div class="overflow-hidden">
+                        <div class="text-xs font-semibold text-slate-200 truncate">${item.title}</div>
+                        <div class="text-[11px] text-emerald-400 font-mono truncate mt-0.5">${item.value}</div>
+                    </div>
+                    <div class="flex items-center gap-1 shrink-0">
+                        <button type="button" onclick="copyToClipboard('${item.value.replace(/'/g, "\\'")}')" class="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-semibold border border-slate-700 transition flex items-center gap-1">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>Copiar</span>
+                        </button>
+                        <button type="button" onclick="removeQuickContactItem('${item.id}')" class="p-1.5 text-slate-500 hover:text-rose-400 transition" title="Remover item">
+                            ×
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            container.innerHTML = `
+                <div class="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1">Páginas Oficiais Kiwify (R$ 47,00)</div>
+                ${kiwifyItemsHtml}
+                <div class="text-[10px] font-bold uppercase tracking-wider text-slate-500 mt-3 mb-1">Contatos & Acessos do Projeto</div>
+                ${contactsHtml}
+            `;
+
+            lucide.createIcons();
+        }
+
+        function toggleAddQuickItem() {
+            document.getElementById('add-quick-item-box').classList.toggle('hidden');
+        }
+
+        function addQuickContactItem() {
+            const title = document.getElementById('quick-item-title').value.trim();
+            const value = document.getElementById('quick-item-value').value.trim();
+
+            if (!title || !value) {
+                showToast('Preencha o título e o contato/link!');
+                return;
+            }
+
+            const list = getQuickContactsList();
+            list.push({
+                id: 'c_' + Date.now(),
+                title,
+                value
+            });
+            localStorage.setItem(STORAGE_KEYS.QUICK_CONTACTS, JSON.stringify(list));
+
+            document.getElementById('quick-item-title').value = '';
+            document.getElementById('quick-item-value').value = '';
+            document.getElementById('add-quick-item-box').classList.add('hidden');
+
+            renderQuickCopyList();
+            showToast('Contato/Link salvo na lateral!');
+        }
+
+        function removeQuickContactItem(id) {
+            let list = getQuickContactsList();
+            list = list.filter(item => item.id !== id);
+            localStorage.setItem(STORAGE_KEYS.QUICK_CONTACTS, JSON.stringify(list));
+            renderQuickCopyList();
+            showToast('Item removido da lateral.');
+        }
+
+        /* ==========================================
+           8. AUTO-PUBLICAR ESTE PAINEL NO GITHUB
            ========================================== */
         async function deployAdminPanelToGitHub() {
             const owner = document.getElementById('gh-owner').value.trim();
@@ -1054,7 +1268,6 @@
             btn.innerHTML = `<span>Enviando admin.html...</span>`;
 
             try {
-                // Limpa temporariamente o valor do input de token do DOM caso esteja em atributo
                 const tokenInput = document.getElementById('gh-token');
                 const tempToken = tokenInput.value;
                 tokenInput.removeAttribute('value');
@@ -1074,7 +1287,7 @@
                 }
 
                 const payload = {
-                    message: 'Atualizando painel gerenciador admin.html',
+                    message: 'Atualizando painel gerenciador admin.html (Oferta R$ 47,00 + 5 Links Kiwify)',
                     content: contentBase64
                 };
                 if (existingSha) payload.sha = existingSha;
@@ -1105,7 +1318,7 @@
         }
 
         /* ==========================================
-           UTILITÁRIOS (CLIPBOARD, TOAST, MODAIS)
+           UTILITÁRIOS
            ========================================== */
         function copyToClipboard(text) {
             const tempInput = document.createElement('textarea');
@@ -1114,7 +1327,7 @@
             tempInput.select();
             document.execCommand('copy');
             document.body.removeChild(tempInput);
-            showToast('Link copiado para a área de transferência!');
+            showToast('Copiado para a área de transferência!');
         }
 
         function showToast(msg) {
